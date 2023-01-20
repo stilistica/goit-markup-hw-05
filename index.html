@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HomeWork4</title>
+    <title>HomeWork5</title>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css">
     <link rel="stylesheet" href="./css/styles.css">
@@ -15,9 +15,18 @@
             <nav class="header-div">
                 <a href="./index.html" class="logo"><span class="logo-web">WEB</span>STUDIO</a>
                 <ul class="site-nav list">
-                    <li class="item"><a href="./index.html" class="link current">Studio</a></li>
-                    <li class="item"><a href="./portfolio.html" class="link">Portfolio</a></li>
-                    <li class="item"><a href="" class="link">Contacts</a></li>
+                    <li class="item current-li">
+                        <a href="./index.html" class="link current">Studio</a>
+                        <div></div>
+                    </li>
+                    <li class="item">
+                        <a href="./portfolio.html" class="link">Portfolio</a>
+                        <div></div>
+                    </li>
+                    <li class="item">
+                        <a href="" class="link">Contacts</a>
+                        <div></div>
+                    </li>
                 </ul>
             </nav>
             <ul class="info-nav list">
@@ -30,8 +39,15 @@
         <div class="container"></div>
         <section class="hero">
             <h1 class="hero-title">Effective Solutions for Your Business</h1>
-            <button type="button" class="hero-button">Order Service</button>
+            <button data-modal-open type="button" class="hero-button">Order Service</button>
         </section>
+        <div class="backdrop is-hidden" data-modal>
+            <div class="modal">
+                <button data-modal-close type="button" class="link">
+                    <svg><use href="./img/symbol-defs.svg#icon-close"></use></svg>
+                </button>
+            </div>
+        </div>
         <section class="margin-top">
             <div class="container skills">
                 <h2 class="visually-hidden">skills</h2>
@@ -270,5 +286,7 @@
             </div>
         </div>
     </footer>
+
+    <script src="./js/modal.js"></script>
 </body>
 </html>
