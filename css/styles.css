@@ -122,9 +122,7 @@ img {
     line-height: 1.5;
     text-decoration: none;
 
-    transition-property: color;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .site-nav .link:hover, 
 .site-nav .link:focus {
@@ -150,9 +148,7 @@ img {
     line-height: 1.5;
     text-decoration: none;
 
-    transition-property: color;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .info-nav .adress:hover,
 .info-nav .adress:focus {
@@ -176,11 +172,14 @@ img {
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    /* width: 100%;
-    height: 100%; */
+    /* right: 0;
+    bottom: 0; */
+    width: 100%;
+    height: 100%;
     background-color: rgba(46, 47, 66, 0.4);
+    opacity: 1;
+
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .backdrop.is-hidden {
     opacity: 0;
@@ -198,7 +197,7 @@ img {
     border-radius: 4px;
 }
 .modal button {
-    position: fixed;
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -213,7 +212,22 @@ img {
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
     cursor: pointer;
+
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+.modal button svg {
+    fill: #000;
+
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal button:hover, .modal button:focus {
+    background-color: var(--hero-button);
+    border-color: var(--hero-button);
+}
+.modal button:hover svg, .modal button:focus svg {
+    fill: var(--white);
+}
+
 
 /* hero */
 .hero {
@@ -265,9 +279,7 @@ img {
     line-height: 1.5;
     cursor: pointer;
 
-    transition-property: background-color;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .hero-button:hover {
     background-color: var(--hero-button);
@@ -427,9 +439,7 @@ img {
     justify-content: center;
     align-items: center;
 
-    transition-property: background-color;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .team-a-icon:hover, .team-a-icon:focus {
     background-color: var(--hero-button);
@@ -462,13 +472,11 @@ img {
 
     border-radius: 4px;
 
-    transition-property: border, color;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .customers-a:hover, 
 .customers-a:focus {
-    border: 1px solid var(--hero-button);
+    border-color: solid var(--hero-button);
     color: var(--hero-button);
 }
 .customers-icon {
@@ -528,9 +536,7 @@ img {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
 
-    transition-property: background;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .foot-li {
     width: 40px;
@@ -567,9 +573,9 @@ img {
     line-height: 1.5;
     text-align: center;
 
-    transition-property: background-color, color, box-shasow;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+
+    transition-property: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),  color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shasow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .port-but {
     display: flex;
@@ -583,8 +589,6 @@ img {
     background-color: var(--selection);
     color: var(--white);
     box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
-
-    cursor: pointer;
 }
 
 .photo {
@@ -617,7 +621,7 @@ img {
 .port-animat p {
     display: inline-block;
     position: absolute;
-    padding: 40px 32px 164px;
+    padding: 40px 32px 0;
     margin: 0px;
     background-color: #4D5AE5;
     color: var(--fdwhite);
@@ -625,12 +629,12 @@ img {
     font-size: 16px;
     line-height: 1.5;
     letter-spacing: 0.02em;
-    opacity: 0;
+    /* opacity: 0; */
     width: 100%;
     min-height: 100%;
 
     transform: translateY(100%);
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 
@@ -653,7 +657,7 @@ img {
 
 .emphasis-off:hover .port-animat p, 
 .emphasis-off:focus .port-animat p {
-    opacity: 1;
+    /* opacity: 1; */
     transform: translateY(0%)
 }
 
